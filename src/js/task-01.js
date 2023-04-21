@@ -6,3 +6,9 @@
 
 const ulQuantity = document.querySelectorAll("li.item").length;
 console.log("Number of categories:", ulQuantity);
+const list = document.querySelectorAll("#categories");
+console.log("list :>> ", list);
+list.forEach((el) => {
+  const title = el.textContent;
+  console.log(title);
+});
