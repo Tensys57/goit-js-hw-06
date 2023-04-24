@@ -10,13 +10,11 @@
 // Яка кількість символів повинна бути в інпуті, зазначається в його атрибуті data-length.
 // Якщо введена правильна кількість символів, то border інпуту стає зеленим, якщо неправильна кількість - червоним.
 // Для додавання стилів використовуй CSS-класи valid і invalid, які ми вже додали у вихідні файли завдання.
-const refs = {
-  inputObject: document.querySelector("#validation-input"),
-};
-const dataLength = Number(refs.inputObject.getAttribute("data-length"));
-refs.inputObject.addEventListener("blur", blurHandler);
+const inputObject = document.querySelector("#validation-input");
+const dataLength = Number(inputObject.getAttribute("data-length"));
+inputObject.addEventListener("blur", blurHandler);
 function blurHandler(blur) {
   blur.currentTarget.value.length === dataLength
-    ? refs.inputObject.classList.add("valid")
-    : refs.inputObject.classList.add("invalid");
+    ? inputObject.classList.add("valid")
+    : inputObject.classList.add("invalid");
 }

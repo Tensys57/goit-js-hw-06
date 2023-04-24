@@ -26,6 +26,30 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+
 function createBoxes(amount) {
-  for (let i = 0; i <= amount; i = +1) {}
+  for (let i = 0; i < amount; i += 1) {
+    const newDiv = document.createElement("div");
+    newDiv.style.width = i * 10 + 30 + "px";
+    newDiv.style.height = i * 10 + 30 + "px";
+    newDiv.style.backgroundColor = getRandomHexColor();
+    refs.divBoxes.append(newDiv);
+  }
 }
+const refs = {
+  inputAmount: document.querySelector("#controls input"),
+  createButton: document.querySelector(`button[data-create]`),
+  destroyButton: document.querySelector(`button[data-destroy]`),
+  divBoxes: document.querySelector("#boxes"),
+};
+
+refs.createButton.addEventListener("click", () => {
+  const amount = refs.inputAmount.value;
+  if (amount > 0) {
+    createBoxes(amount);
+  }
+});
+
+refs.destroyButton.addEventListener("click", () => {
+  refs.divBoxes.innerHTML = "";
+});

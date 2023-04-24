@@ -13,12 +13,11 @@ const ingredients = [
   "Herbs",
   "Condiments",
 ];
-// const array = [];
 const listOfIngredients = document.querySelector("#ingredients");
-ingredients.forEach((el) => {
-  const item = document.createElement("li");
-  item.textContent = el;
-  item.classList.add("item");
-  // array.push(item);
-  listOfIngredients.append(item);
+const arr = ingredients.map((item) => {
+  const arrItems = document.createElement("li");
+  arrItems.textContent = item;
+  arrItems.classList.add("item");
+  return arrItems;
 });
+listOfIngredients.append(...arr);
