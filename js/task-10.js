@@ -26,6 +26,8 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+let widthCounter = 30;
+let newDivCollection = [];
 
 const divCreator = (widthCounter) => {
   const newDiv = document.createElement("div");
@@ -36,8 +38,6 @@ const divCreator = (widthCounter) => {
 };
 
 function createBoxes(amount) {
-  let newDivCollection = [];
-  let widthCounter = 30;
   for (let i = 0; i < amount; i += 1) {
     newDivCollection.push(divCreator(widthCounter));
     widthCounter += 10;
