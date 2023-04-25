@@ -60,5 +60,6 @@ refs.createButton.addEventListener("click", () => {
 });
 
 refs.destroyButton.addEventListener("click", () => {
+  let newDivCollection = [];
   refs.divBoxes.innerHTML = "";
 });
