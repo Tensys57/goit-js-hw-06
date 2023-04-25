@@ -21,15 +21,19 @@
 const loginForm = document.querySelector(".login-form");
 loginForm.addEventListener("submit", loginFormHandler);
 function loginFormHandler(event) {
-  event.preventDefault();
   const {
     elements: { email, password },
   } = event.currentTarget;
+  event.preventDefault();
   if (email.value === "" || password.value === "") {
     alert("Увага! Усі поля повинні бути заповнені!");
     return;
   } else {
-    console.log(`Email: ${email.value} Password: ${password.value}`);
+    const loginData = {
+      email: email.value,
+      password: password.value,
+    };
+    console.log(loginData);
     event.currentTarget.reset();
   }
 }

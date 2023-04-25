@@ -8,7 +8,7 @@ const refs = {
 };
 refs.nameInput.addEventListener("input", inputHandler);
 function inputHandler(event) {
-  refs.nameInput
+  refs.nameInput.value !== ""
     ? (refs.nameOutput.textContent = event.currentTarget.value)
     : (refs.nameOutput.textContent = "Anonymous");
 }

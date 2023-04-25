@@ -27,15 +27,24 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
+const divCreator = (widthCounter) => {
+  const newDiv = document.createElement("div");
+  newDiv.style.width = widthCounter + "px";
+  newDiv.style.height = widthCounter + "px";
+  newDiv.style.backgroundColor = getRandomHexColor();
+  return newDiv;
+};
+
 function createBoxes(amount) {
+  let newDivCollection = [];
+  let widthCounter = 30;
   for (let i = 0; i < amount; i += 1) {
-    const newDiv = document.createElement("div");
-    newDiv.style.width = i * 10 + 30 + "px";
-    newDiv.style.height = i * 10 + 30 + "px";
-    newDiv.style.backgroundColor = getRandomHexColor();
-    refs.divBoxes.append(newDiv);
+    newDivCollection.push(divCreator(widthCounter));
+    widthCounter += 10;
   }
+  refs.divBoxes.append(...newDivCollection);
 }
+
 const refs = {
   inputAmount: document.querySelector("#controls input"),
   createButton: document.querySelector(`button[data-create]`),
